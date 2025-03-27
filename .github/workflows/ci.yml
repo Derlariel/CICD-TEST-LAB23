@@ -10,12 +10,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source code
+      - name: Checkout source code   # ✅ เยื้องให้ตรงกับ jobs และ steps
         uses: actions/checkout@v3   # ดึง source code จาก repository
 
-       - name: Simulate Build
+      - name: Simulate Build         # ✅ เยื้องให้ตรงกันทุกขั้นตอน
         run: echo "Building project..."
 
-       - name: Simulate Test
+      - name: Simulate Test
         run: echo "Running tests... ✅"
-
