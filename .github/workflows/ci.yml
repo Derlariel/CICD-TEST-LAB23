@@ -1,0 +1,25 @@
+name: Run Tests Only
+
+on:
+  push:
+    branches:
+      - main   # รันเมื่อมีการ push ไปที่ branch main
+  pull_request:  # หรือเมื่อมีการสร้าง pull request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3   # ดึง source code จาก repository
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'        # ติดตั้ง Node.js เวอร์ชัน 18 (หรือปรับตามที่คุณใช้)
+
+      - name: Install dependencies
+        run: npm install            # ติดตั้ง dependencies จาก package.json
+
+      - name: Run tests
+        run: npm test               # รันคำสั่ง npm test เพื่อรัน test cases
